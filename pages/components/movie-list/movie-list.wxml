@@ -1,0 +1,11 @@
+<view class="item" wx:for="{{movies}}" wx:for-item="movie" wx:key="movie" bindtap="goMovieDetail" data-movie="{{movie}}">
+	<view class="img">
+		<image src="{{movie.images.medium}}"></image>
+	</view>
+	<view class="content">
+		<text>{{movie.title}}</text>
+		<text class="sub">{{movie.original_title}}({{movie.year}})</text>
+		<text class="sub">导演：{{movie.directors[0].name}}</text>
+	</view>
+	<text class="score" wx:if="{{movie.rating.average}}">{{movie.rating.average}}</text>
+</view>

@@ -1,0 +1,4 @@
+<view>
+	<image src="/images/loading.gif"></image>
+ 	<text>{{ title }}</text>
+</view>

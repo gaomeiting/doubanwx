@@ -1,0 +1,4 @@
+<import src="../template/movie-list" />
+<view class="search">
+	<template is="list" data="{{movies, more}}" />
+</view>

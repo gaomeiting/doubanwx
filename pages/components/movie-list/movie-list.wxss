@@ -1,0 +1,64 @@
+.list .item {
+	display: flex;
+	border-bottom: 1px solid #eee;
+	padding: 20rpx 0;
+}
+.list .item:last-of-type {
+	border-bottom: none;
+}
+.item .img {
+	width: 128rpx;
+	height: 168rpx;
+	overflow: hidden;
+	margin-right: 10rpx;
+}
+.item .img image {
+	width: 100%;
+	height: 100%;
+}
+.item .content {
+	flex: 1;
+	font-size: 28rpx;
+}
+.more {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 12rpx;
+}
+.more image {
+	width: 48rpx;
+	height: 48rpx;
+	margin-right: 16rpx;
+}
+.more text {
+	font-size: 28rpx;
+	color: #ccc;
+}
+.end {
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	color: #ccc;
+}
+.item .content text {
+	display: block;
+	line-height: 1.8;
+	padding-bottom: 16rpx;
+}
+.item .content .sub {
+	font-size: 24rpx;
+	color: #c0c0c0;
+	padding-bottom: 0;
+}
+.item .score {
+	display: block;
+	width: 80rpx;
+	background: rgba(247, 76, 49, 0.8);
+	color: #fff;
+	text-align: center;
+	line-height: 1.5;
+	height: 42rpx;
+	font-size: 28rpx;
+	border-radius: 21rpx;
+}

@@ -1,0 +1,15 @@
+@import "../template/movie-list"
+.search { padding: 16rpx 0; }
+.search .list {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 32rpx;
+}
+.search .search-box {
+	width: 100%;
+	border-bottom: 1px solid #f8f8f8;
+	padding: 20rpx 0;
+	font-size: 32rpx;
+	color: #333;
+	text-align: center;
+}

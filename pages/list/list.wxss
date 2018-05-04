@@ -1,0 +1,4 @@
+@import "../template/movie-list"
+.search { padding: 16rpx 32rpx; }
+
+

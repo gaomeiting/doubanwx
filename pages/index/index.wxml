@@ -1,0 +1,7 @@
+
+<swiper indicator-dots autoplay="true">
+  <swiper-item wx:for="{{subjects}}"  wx:key="{{id}}" >
+    <image class="item-image" src="{{ item.images.large }}" mode="aspectFill" lazy-load="true"></image>
+    <button wx:if="{{index===subjects.length-1}}" hover-class="none" bindtap="redirectHome">开启小程序之旅</button>
+  </swiper-item>
+</swiper>

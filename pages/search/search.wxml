@@ -1,0 +1,7 @@
+<import src="../template/movie-list" />
+<view class="search">
+	<view class="search-box">
+		<input type="text" placeholder="在此输入搜索内容" confirm-type="search" bindchange="search" />
+	</view>
+	<template is="list" data="{{movies, more}}" />
+</view>

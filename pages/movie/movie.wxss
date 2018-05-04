@@ -1,0 +1,56 @@
+
+.movie {
+	padding: 40rpx 40rpx 0;
+}
+.movie .bg-image {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	opacity: 0.1;
+	z-index: -1;
+	top:0;
+	left: 0;
+}
+.movie .bg-image image {
+	width: 100%;
+	min-height: 100%;
+}
+.movie .poster {
+	width: 100%;
+	height: 800rpx;
+}
+.movie .poster image {
+	width: 100%;
+	min-height: 100%;
+}
+.movie .title {
+	display: block;
+	font-size: 36rpx;
+	color: #333;
+	text-align: center;
+	padding-top: 20rpx;
+	line-height: 1.8;
+}
+.movie text:nth-of-type(2) {
+	text-align: left;
+	font-size: 32rpx;
+}
+.movie .info {
+	font-size: 28rpx;
+	color: #666;
+	line-height: 1.8;
+}
+.movie .info text:last-child text {
+	display: inline-block;
+	padding-right: 8rpx;
+}
+.movie .info text {
+	display: block;
+}
+.movie .main {
+	display: block;
+	font-size: 24rpx;
+	color: #666;
+	line-height: 1.5;
+	padding-bottom: 32rpx;
+}
