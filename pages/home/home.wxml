@@ -1,3 +1,4 @@
+<import src="../template/score" />
 <view class="home">
 	<block wx:for="{{ boards }}" wx:key="key">
 		<swiper wx:if="{{index===0}}" class="slide" indicator-dots autoplay>
@@ -14,8 +15,8 @@
 							<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
 						</view>
 						<view class="score" wx:if="{{movie.rating.average}}">
-							<view class="star">
-								<image wx:for="{{item.scores[index]}}" wx:for-item="score" wx:key="sc" src="../../images/{{score}}.png"></image>
+							<view class="star-wrap">
+								<template is="score" data="{{scores: item.scores[index]}}"></template>
 							</view>
 							<text>{{movie.rating.average}}</text>
 						</view>

@@ -7,9 +7,14 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
-text {
+page {
 	display: block;
 	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei", Arial,sans-serif;
 	color: #333;
+	font-size: 28rpx;
+	line-height: 1.5;
+}
+text {
+	display: block;
 }
 

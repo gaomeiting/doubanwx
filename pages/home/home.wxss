@@ -1,3 +1,4 @@
+@import "../template/score"
 .home {}
 .home .slide {
 	width: 100%;
@@ -60,18 +61,12 @@
 	font-size: 28rpx;
 	color: #ccc;
 }
-.home-section .list-item image {
+.home-section .img-wrap > image {
 	width: 100%;
 }
-.home-section .star {
+.home-section .star-wrap {
 	flex: 1;
-}
-.home-section .star image {
-	width: 28rpx;
-	height: 28rpx;
-}
-.home-section .score view.active {}
-.home-section .movie-text {
+}.home-section .movie-text {
 	padding: 16rpx 8rpx 0;
 }
 .home-section .movie-text text {

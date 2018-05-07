@@ -1,13 +1,61 @@
+<import src="../template/score" />
 <view class="movie">
-	<view class="poster">
-		<image src="{{movie.images.medium}}" mode="aspectFill"></image>
+	<view class="poster" style="background-image:url({{movie.images.large}})">
+		<view class="mark"></view>
+		<view class="poster-con-wrap">
+			<view class="img-wrap">
+				<image src="{{movie.images.medium}}" mode="aspectFill"></image>
+			</view>
+			<view class="text">
+				<text>{{movie.original_title}}</text>
+				<view class="content">
+					<text class="score">5.8</text>
+					<view class="con-right">
+						<template is="score" data="{{scores}}"></template>
+						<text wx:if="movie.reviews_count">{{movie.reviews_count}}人评价</text>
+					</view>
+
+				</view>
+			</view>
+		</view>
+		
 	</view>
-	<text class="title">{{movie.original_title}}</text>
 	<view class="info">
-		<text>评分：{{movie.rating.average}}</text>
+		<text>
+			{{movie.durations}} <text wx:for="{{movie.genres}}" wx:for-item="genre" wx:key="gen">{{genre}}<text wx:if="{{index != movie.genres.length-1}}">/</text></text>
+		</text>
+		<text>{{movie.mainland_pubdate}} <text wx:for="{{movie.countries}}" wx:for-item="country" wx:key="coun">{{country}}</text></text>
 		<text wx:if="{{movie.directors}}">导演：{{movie.directors[0].name}}</text>
 		<text>主演：<text wx:for="{{movie.casts}}" wx:for-item="cast" wx:key="id">{{cast.name}}</text></text>
 	</view>
-	<text class="title" wx:if="{{movie.summary}}">摘要</text>
+	<text class="title" wx:if="{{movie.summary}}">{{movie.title}}剧情简介</text>
 	<text class="main">{{movie.summary}}</text>
+	<text class="title">短评(56018)</text>
+	<view class="small-comment-wrap">
+		<view class="list">
+			<view class="item" wx:for="{{movie.popular_comments}}" wx:for-item="comment" wx:key="com">
+				<view class="img">
+					<image src="{{comment.author.avatar}}" mode="aspectFill"></image>
+				</view>
+				<view class="info">
+					<view class="name-group"><text>{{comment.author.name}}</text> <view class="star-wrap"><template is="score" data="{{scores: commentsScores[index]}}"></template></view></view>
+					<text>{{comment.created_at}}</text>
+					<text>{{comment.content}}</text>
+				</view>
+			</view>
+		</view>
+		<!-- <text class="more">查看更多短评</text> -->
+	</view>
+	<text class="title">影评(56018)</text>
+	<view class="small-comment-wrap">
+		<view class="list">
+			<view class="item" wx:for="{{movie.popular_reviews}}" wx:for-item="review" wx:key="rev" wx:if="{{index<3}}">
+				<view class="info">
+					<view class="title">{{review.title}}</view>
+					<view class="name-group"><text>{{review.author.name}}</text> <view class="star-wrap"><template is="score" data="{{scores: reviewsScores[index]}}"></template></view></view>
+				</view>
+			</view>
+		</view>
+		<!-- <text class="more">查看更多影评</text> -->
+	</view>
 </view>

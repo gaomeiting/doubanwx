@@ -1,0 +1,6 @@
+<view class="comment-page">
+	<view class="comment-nav">
+		<view class="active">最新短评</view>
+		<view>最热短评</view>
+	</view>
+</view>

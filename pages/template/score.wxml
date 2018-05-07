@@ -1,0 +1,5 @@
+<template name="score">
+	<view class="star">
+		<image wx:for="{{scores}}" wx:for-item="score" wx:key="sc" src="../../images/{{score}}.png"></image>
+	</view>
+</template>

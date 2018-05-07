@@ -14,29 +14,7 @@ Page({
   onLoad() {
   	this._ajaxData();
   },
-  culScore(n) {
-    const s=[];
-    let score = Math.round(n);
-    let init = score / 2 | 0;
-    for(let i=0; i<5; i++) {
-      if(i<init) {
-        s.push('star_on');
-      }
-      else if(i==init) {
-        if(score % 2) {
-          s.push('star_on_half')
-        }
-        else{
-          s.push('star')
-        }
-      }
-      else {
-        s.push('star')
-      }
-    }
-    return s;
-
-  },
+  
   goMovieDetail(e) {
     const movie= e.currentTarget.dataset.movie;
     const title = e.currentTarget.dataset.movie.title;
@@ -60,7 +38,7 @@ Page({
   			 board.title = res.title;
   			 board.movies = res.subjects;
          board.scores = board.movies.map(item => {
-          return this.culScore(item.rating.average)
+          return app.douban.culScore(item.rating.average)
          })
   			 return board
   		})

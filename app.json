@@ -1,9 +1,9 @@
 {
   "pages":[
-    
     "pages/home/home",
-    "pages/index/index",
+    "pages/comments/comments",
     "pages/movie/movie",
+    "pages/index/index",
     "pages/search/search",
     "pages/list/list"
   ],
