@@ -10,8 +10,23 @@
 			<scroll-view scroll-x class="list-wrap">
 				<view class="list">
 					<view class="list-item" wx:for="{{item.movies}}" wx:for-item="movie" wx:key="id" bindtap="goMovieDetail" data-movie="{{movie}}">
-						<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
+						<view class="img-wrap">
+							<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
+						</view>
+						<view class="score" wx:if="{{movie.rating.average}}">
+							<view class="star">
+								<image wx:for="{{item.scores[index]}}" wx:for-item="score" wx:key="sc" src="../../images/{{score}}.png"></image>
+							</view>
+							<text>{{movie.rating.average}}</text>
+						</view>
+						<view class="movie-text">
+							<text>{{movie.title}}</text>
+							<view class="tags">
+								<view class="tag" wx:for="{{movie.genres}}" wx:for-item="genre" wx:key="g" wx-if="{{index<2}}">{{genre}}</view>
+							</view>
+						</view>
 					</view>
+					
 				</view>
 			</scroll-view>
 		</view>

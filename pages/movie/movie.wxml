@@ -1,7 +1,4 @@
 <view class="movie">
-	<view class="bg-image">
-		<image src="{{movie.images.large}}" mode="aspectFill"></image>
-	</view>
 	<view class="poster">
 		<image src="{{movie.images.medium}}" mode="aspectFill"></image>
 	</view>

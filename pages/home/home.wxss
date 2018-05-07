@@ -39,13 +39,65 @@
 .home-section .list-item {
 	display: inline-block;
 	width: 200rpx;
+	margin-right: 12rpx;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+	position: relative;
+}
+.home-section .img-wrap {
 	height: 260rpx;
 	overflow: hidden;
-	margin-right: 12rpx;
 }
-.home-section .list-item:last-child {
-	margin-right: 0;
+.home-section .score {
+	position: absolute;
+	bottom: 106rpx;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 6rpx;
+	display: flex;
+	background: rgba(0,0,0,.75);
+}
+.home-section .score text {
+	font-size: 28rpx;
+	color: #ccc;
 }
 .home-section .list-item image {
 	width: 100%;
+}
+.home-section .star {
+	flex: 1;
+}
+.home-section .star image {
+	width: 28rpx;
+	height: 28rpx;
+}
+.home-section .score view.active {}
+.home-section .movie-text {
+	padding: 16rpx 8rpx 0;
+}
+.home-section .movie-text text {
+	font-size: 28rpx;
+	line-height: 1.5;
+	color: #222;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.home-section .tags {
+
+}
+.home-section .tags .tag {
+	font-size: 22rpx;
+	padding: 0 16rpx;
+	line-height: 1.6;
+	border: 1rpx solid #666;
+	border-radius: 24rpx;
+	display: inline-block;
+	margin-right: 8rpx;
+	color: #666;
+}
+.home-section .tags .tag:last-of-type {
+	margin-right: 0;
+}
+.home-section .list-item:last-child {
+	margin-right: 0;
 }

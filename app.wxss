@@ -10,5 +10,6 @@
 text {
 	display: block;
 	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei", Arial,sans-serif;
+	color: #333;
 }
 
