@@ -38,13 +38,13 @@
 				</view>
 			</view>
 		</view>
-		<view class="list-item" wx-else wx:for="{{type==='works'?item.works:item.movies}}" wx:for-item="movie" wx:key="id" bindtap="goMovieDetail" data-movie="{{movie}}">
+		<view class="list-item" wx-else wx:for="{{item.movies}}" wx:for-item="movie" wx:key="id" bindtap="goMovieDetail" data-movie="{{movie}}">
 			<view class="img-wrap">
 				<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
 			</view>
 			<view class="score" wx:if="{{movie.rating.average}}">
 				<view class="star-wrap">
-					<template is="score" data="{{scores: item.scores[index]}}"></template>
+					<template is="score" data="{{scores: movie.scoreClass}}"></template>
 				</view>
 				<text>{{movie.rating.average}}</text>
 			</view>

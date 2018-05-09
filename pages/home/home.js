@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-import Movie from "../../utils/movie"
+import { CreateMovie } from "../../utils/movie"
 Page({
   data: {
   	boards: [
@@ -37,11 +37,7 @@ Page({
   		return app.douban.find(board.key, 1, 8).then(res => {
          
   			 board.title = res.title;
-  			 board.movies = res.subjects;
-         this._normalize(res.subjects);
-         board.scores = board.movies.map(item => {
-          return app.douban.culScore(item.rating.average)
-         })
+         board.movies = this._normalize(res.subjects);
   			 return board
   		})
   	})
@@ -55,8 +51,8 @@ Page({
   _normalize(list) {
     let arr=[]
     list.forEach(item => {
-      let { id, rating, durations, pubdates, genres, title, casts, directors } = item;
-      let movie = new Movie({ id, rating, durations, pubdates, genres, title, casts, directors })
+      let movie = CreateMovie(item)
+      movie.culScore(movie.rating.average, movie.rating.max);
       arr.push(movie)
     })
     return arr;

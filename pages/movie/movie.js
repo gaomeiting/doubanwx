@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import {CulScore} from "../../utils/movie"
 Page({
 	data: {
 		movie: null,
@@ -21,18 +21,6 @@ Page({
 			title: _this.data.options.title || "后来的我们"
 		})
 	},
-	culScore(n) {
-		const s=[]
-		for(let i=0; i<5; i++) {
-			if(i<n) {
-				s.push('star_on')
-			}
-			else {
-				s.push('star')
-			}
-		}
-		return s;
-	},
 	showall() {
 		const ellipsis = !this.data.ellipsis ? 'ellipsis' : '';
 		this.setData({
@@ -44,17 +32,19 @@ Page({
 			title: "拼命加载中..."
 		})
 		app.douban.findOne(url).then(res => {
-			const scores = app.douban.culScore(res.rating.average)
-			const popularReviewsScores=res.popular_reviews.map(item => {
-				return this.culScore(item.rating.value)
+			let reviews = res.popular_reviews
+			let comments = res.popular_comments
+			const score = CulScore(res.rating.average, res.rating.max)
+			const popularReviewsScores=reviews.map(item => {
+				return CulScore(item.rating.value, item.rating.max)
 			})
-			const popularCommentsScores=res.popular_comments.map(item => {
-				return this.culScore(item.rating.value)
+			const popularCommentsScores=comments.map(item => {
+				return CulScore(item.rating.value, item.rating.max)
 			})
 			const casts = res.directors.concat(res.casts)
 			this.setData({
 				movie: res,
-				scores,
+				score,
 				reviewsScores: popularReviewsScores,
 				commentsScores: popularCommentsScores,
 				casts

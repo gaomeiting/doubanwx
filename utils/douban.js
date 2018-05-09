@@ -21,32 +21,8 @@ function findOne(url, id) {
 		return res.data;
 	})
 }
-//计算评分
-function culScore(n) {
-    const s=[];
-    let score = Math.round(n);
-    let init = score / 2 | 0;
-    for(let i=0; i<5; i++) {
-      if(i<init) {
-        s.push('star_on');
-      }
-      else if(i==init) {
-        if(score % 2) {
-          s.push('star_on_half')
-        }
-        else{
-          s.push('star')
-        }
-      }
-      else {
-        s.push('star')
-      }
-    }
-    return s;
 
-}
 module.exports = {
 	find,
-	findOne,
-	culScore
+	findOne
 }
