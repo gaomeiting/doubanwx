@@ -1,4 +1,5 @@
 <import src="../template/score" />
+<import src="../template/movie-list" />
 <view class="home">
 	<block wx:for="{{ boards }}" wx:key="key">
 		<swiper wx:if="{{index===0}}" class="slide" indicator-dots autoplay>
@@ -7,28 +8,9 @@
 			</swiper-item>
 		</swiper>
 		<view class="home-section" wx:if="{{index < boards.length-1}}" wx:key="id">
-			<text class="title" bindtap="allMovies" data-movie="{{item}}"><text>{{item.title}}</text></text>
+			<view wx-if="item" class="title" bindtap="allMovies" data-movie="{{item}}"><text>{{item.title}}</text><text>查看</text></view>
 			<scroll-view scroll-x class="list-wrap">
-				<view class="list">
-					<view class="list-item" wx:for="{{item.movies}}" wx:for-item="movie" wx:key="id" bindtap="goMovieDetail" data-movie="{{movie}}">
-						<view class="img-wrap">
-							<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
-						</view>
-						<view class="score" wx:if="{{movie.rating.average}}">
-							<view class="star-wrap">
-								<template is="score" data="{{scores: item.scores[index]}}"></template>
-							</view>
-							<text>{{movie.rating.average}}</text>
-						</view>
-						<view class="movie-text">
-							<text>{{movie.title}}</text>
-							<view class="tags">
-								<view class="tag" wx:for="{{movie.genres}}" wx:for-item="genre" wx:key="g" wx-if="{{index<2}}">{{genre}}</view>
-							</view>
-						</view>
-					</view>
-					
-				</view>
+				<template is="row-list" data="{{item}}"></template>
 			</scroll-view>
 		</view>
 	</block>

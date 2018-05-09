@@ -1,0 +1,25 @@
+<import src="../template/movie-list" />
+<view class="cast-page">
+	<view class="post-wrap" style="background-image:url(https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=04083ce4fa03738dc14a0a22831bb073/08f790529822720eb1faa1be77cb0a46f21fabba.jpg); background-size: cover;">
+		<view class="mark"></view>
+		<view class="post">
+			<view class="icon-wrap">
+				<image src="../../images/wp.png"></image>
+				<text>收藏</text>
+			</view>
+			<view class="head-img">
+				<image src="https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=04083ce4fa03738dc14a0a22831bb073/08f790529822720eb1faa1be77cb0a46f21fabba.jpg" mode="aspectFill"></image>
+			</view>
+			<view class="name">
+				<text>黄衣服</text>
+				<text>;lakjsfka</text>
+				<text>澳门</text>
+			</view>
+		</view>
+		
+	</view>
+	<view class="films-list">
+		<template is="row-list" data="{{item:cast, type: 'works'}}"></template>
+	</view>
+
+</view>

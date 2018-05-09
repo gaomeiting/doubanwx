@@ -1,3 +1,4 @@
+<import src="../template/score" />
 <template name="item">
 	<view class="item" wx:for="{{movies}}" wx:for-item="movie" wx:key="movie" bindtap="goMovieDetail" data-movie="{{movie}}">
 		<view class="img">
@@ -21,5 +22,38 @@
 		<text class="end" wx:if="{{!more && movies.length}}">
 			没有更多内容了
 		</text>
+	</view>
+</template>
+<!-- 横向滚动列表 -->
+
+<template name="row-list">
+	<view class="list">
+		<view class="list" wx:if="{{type==='cast'}}">
+			<view class="list-item" wx:for="{{item}}" wx:for-item="cast" wx:key="id" bindtap="" data-movie="{{cast}}">
+				<view class="img-wrap">
+					<image src="{{cast.avatars.small}}" mode="aspectFill" lazy-load></image>
+				</view>
+				<view class="movie-text">
+					<text>{{cast.name}}</text>
+				</view>
+			</view>
+		</view>
+		<view class="list-item" wx-else wx:for="{{type==='works'?item.works:item.movies}}" wx:for-item="movie" wx:key="id" bindtap="goMovieDetail" data-movie="{{movie}}">
+			<view class="img-wrap">
+				<image src="{{movie.images.small}}" mode="aspectFill" lazy-load></image>
+			</view>
+			<view class="score" wx:if="{{movie.rating.average}}">
+				<view class="star-wrap">
+					<template is="score" data="{{scores: item.scores[index]}}"></template>
+				</view>
+				<text>{{movie.rating.average}}</text>
+			</view>
+			<view class="movie-text">
+				<text>{{movie.title}}</text>
+				<view class="tags">
+					<view class="tag" wx:for="{{movie.genres}}" wx:for-item="genre" wx:key="g" wx-if="{{index<2}}">{{genre}}</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>

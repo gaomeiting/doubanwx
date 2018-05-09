@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import Movie from "../../utils/movie"
 Page({
   data: {
   	boards: [
@@ -35,8 +35,10 @@ Page({
   	})
   	const tasks=this.data.boards.map(board => {
   		return app.douban.find(board.key, 1, 8).then(res => {
+         
   			 board.title = res.title;
   			 board.movies = res.subjects;
+         this._normalize(res.subjects);
          board.scores = board.movies.map(item => {
           return app.douban.culScore(item.rating.average)
          })
@@ -47,8 +49,16 @@ Page({
   		this.setData({
   			boards
   		})
-  		console.log(this.data.boards, "1234")
   		wx.hideLoading()
   	})
+  },
+  _normalize(list) {
+    let arr=[]
+    list.forEach(item => {
+      let { id, rating, durations, pubdates, genres, title, casts, directors } = item;
+      let movie = new Movie({ id, rating, durations, pubdates, genres, title, casts, directors })
+      arr.push(movie)
+    })
+    return arr;
   }
 })

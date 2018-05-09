@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
 	data: {
-		movie: null
+		movie: null,
+		ellipsis: 'ellipsis'
 	},
 	onLoad(options) {
 		const id = options.id || 26683723;
@@ -32,6 +33,12 @@ Page({
 		}
 		return s;
 	},
+	showall() {
+		const ellipsis = !this.data.ellipsis ? 'ellipsis' : '';
+		this.setData({
+			ellipsis
+		})
+	},
 	_ajaxMovie(url) {
 		wx.showLoading({
 			title: "拼命加载中..."
@@ -44,11 +51,13 @@ Page({
 			const popularCommentsScores=res.popular_comments.map(item => {
 				return this.culScore(item.rating.value)
 			})
+			const casts = res.directors.concat(res.casts)
 			this.setData({
 				movie: res,
 				scores,
 				reviewsScores: popularReviewsScores,
 				commentsScores: popularCommentsScores,
+				casts
 			})
 			wx.hideLoading()
 		})

@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/cast/cast",
     "pages/comments/comments",
     "pages/movie/movie",
     "pages/index/index",
