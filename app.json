@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/myself/myself",
     "pages/home/home",
     "pages/cast/cast",
     "pages/comments/comments",
@@ -31,6 +32,12 @@
         "pagePath": "pages/search/search",
         "iconPath": "images/search.png",
         "selectedIconPath": "images/search-actived.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/myself/myself",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/myselect.png"
       }
     ]
   }

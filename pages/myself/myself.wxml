@@ -1,0 +1,33 @@
+<view class="myself-page">
+	<view class="post-wrap" style="background: url(https://ss0.baidu.com/7Po3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=777ba8a7b0315c605c956defbdb0cbe6/a5c27d1ed21b0ef48c509cecd1c451da80cb3ec3.jpg); background-size: cover;">
+		<view class="mark"></view>
+		<view class="post">
+			<view class="header-img">
+				<image src="{{userInfo.avatarUrl}}"></image>
+			</view>
+			<text class="name">{{userInfo.nickName}}</text>
+		</view>
+	</view>
+	<view class="my-list-wrap">
+		<view class="item">
+			<view class="icon"></view>
+			<text>收藏</text>
+		</view>
+		<view class="item">
+			<view class="icon"></view>
+			<text>浏览记录</text>
+		</view>
+		<view class="item">
+			<view class="icon"></view>
+			<text>摇一摇</text>
+		</view>
+		<view class="item">
+			<view class="icon"></view>
+			<text>相册</text>
+		</view>
+		<view class="item">
+			<view class="icon"></view>
+			<text>设置</text>
+		</view>
+	</view>
+</view>
