@@ -1,0 +1,14 @@
+<import src="../template/movie-list" />
+<view class="page-wrap">
+	<view class="empty-wrap" wx:if="{{!tempFilePaths.length}}">
+		<template is="empty"></template>
+		<view class="button" catchtap="update">上传图片</view>
+	</view>
+	<view class="img-wrap" wx:else>
+		<view wx:for="{{tempFilePaths}}" wx:key="tem">
+			<image src="{{item}}" mode="aspectFill"></image>
+		</view>
+		<view catchtap="update">
+		</view>
+	</view>
+</view>

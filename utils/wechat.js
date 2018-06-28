@@ -27,12 +27,33 @@ function getLocation (type) {
     wx.getLocation({ type: type, success: resolve, fail: reject })
   })
 }
-
+function previewImage (current, urls) {
+  return new Promise((resolve, reject) =>{
+      wx.previewImage({
+        current,
+        urls,
+        success: resolve,
+        fail: reject
+      })
+  })
+  
+}
+function chooseImage (count=9) {
+  return new Promise((resolve, reject) => {
+    wx.chooseImage({
+      count,
+      success: resolve,
+      fail: reject
+    })
+  })
+}
 module.exports = {
   login,
   getUserInfo,
   setStorage,
   getStorage,
   getLocation,
+  previewImage,
+  chooseImage,
   original: wx
 }

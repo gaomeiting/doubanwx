@@ -1,0 +1,10 @@
+@import "../template/movie-list"
+.page-wrap {
+	padding: 32rpx;
+}
+.empty-wrap {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -80%, 0);
+}

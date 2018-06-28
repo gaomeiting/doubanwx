@@ -1,0 +1,7 @@
+<import src="../template/movie-list" />
+<view class="page-wrap">
+	<view class="empty-wrap" wx:if="{{!movies.length}}">
+		<template is="empty"></template>
+	</view>
+	<template is="list" data="{{movies}}"></template>
+</view>

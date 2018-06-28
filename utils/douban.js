@@ -1,6 +1,6 @@
+import { getStorage, setStorage } from "./wechat.js"
 const baseURL="https://douban.uieee.com/v2/movie"
 const fetch=require('./fetch.js')
-
 function fetchAPI(url, params) {
   return fetch(baseURL, url, params)
 }
@@ -21,8 +21,26 @@ function findOne(url, id) {
 		return res.data;
 	})
 }
-
+function getStorage_(key, id) {
+		let arr = []
+		const task = getStorage(key).then(res => {
+			return arr = res.data;
+		}).catch(err => {
+			setStorage(key, arr)
+			return arr
+		})
+		return Promise.all([task]).then(res => {
+			let index = res[0].findIndex( val => {
+				return val.id === id
+			})
+			return {
+					index,
+					vals: arr
+				}
+		})
+	}
 module.exports = {
 	find,
-	findOne
+	findOne,
+	getStorage_
 }

@@ -6,12 +6,24 @@
 		</view>
 		<view class="content">
 			<text>{{movie.title}}</text>
-			<text class="sub">{{movie.original_title}}({{movie.year}})</text>
+			<view class="sub ellpsis">
+				<text decode="{{true}}">演员: &nbsp;</text>
+				<text decode="{{true}}" wx:for="{{movie.casts}}" wx:for-item="cast" wx:key="{{index}}">{{cast.name}} &nbsp;</text>
+			</view>
 			<text class="sub">导演：{{movie.directors[0].name}}</text>
 		</view>
 		<text class="score" wx:if="{{movie.rating.average}}">{{movie.rating.average}}</text>
 	</view>
 </template>
+<!-- 空空如也 -->
+
+<template name="empty">
+	<view class="empty">
+		<view></view>
+		<text>空空如也~~</text>
+	</view>	
+</template>
+
 <template name="list">
 	<view class="list">
 		<template is="item" data="{{movies}}" />
@@ -30,7 +42,7 @@
 	<view class="list">
 		<view class="list" wx:if="{{type==='cast'}}">
 			<view class="list-item" wx:for="{{item}}" wx:for-item="cast" wx:key="id" bindtap="" data-movie="{{cast}}">
-				<view class="img-wrap">
+				<view class="img-wrap" catchtap="priviewImage" data-casts="{{item}}" data-index="{{index}}">
 					<image src="{{cast.avatars.small}}" mode="aspectFill" lazy-load></image>
 				</view>
 				<view class="movie-text">
